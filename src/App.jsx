@@ -10,7 +10,7 @@ const fields = [
   {
     name: 'payerID',
     label: 'payer ID',
-    valueEditorType: 'select',
+    valueEditorType: 'multiselect',
     values: [
       { name: 'PayeeID1', label: 'PayeeId 1' },
       { name: 'PayeeID2', label: 'PayeeId 2' },
