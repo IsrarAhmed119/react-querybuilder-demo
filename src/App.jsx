@@ -32,17 +32,55 @@ const initialQuery = { combinator: 'and', rules: [] };
 export const App = () => {
   const [query, setQuery] = useState(initialQuery);
 
+  const loadQuery = () => {
+    setQuery({
+      combinator: 'and',
+      rules: [
+        {
+          id: 'r-0.559982682432425',
+          field: 'firstName',
+          operator: '=',
+          valueSource: 'value',
+          value: 'israr',
+          disabled: true,
+        },
+        {
+          id: 'r-0.9335270678830434',
+          field: 'lastName',
+          operator: '=',
+          valueSource: 'value',
+          value: 'ahmed',
+        },
+        {
+          id: 'r-0.10483898855505536',
+          field: 'chargeAmount',
+          operator: '=',
+          valueSource: 'value',
+          value: '22',
+        },
+      ],
+      id: 'g-0.15186517915036535',
+      not: false,
+    });
+  };
+
   return (
     <div>
       <QueryBuilder
         fields={fields}
         query={query}
         onQueryChange={q => setQuery(q)}
+        showNotToggle
+        // showLockButtons
       />
       <h4>Query</h4>
       <pre>
         <code>{formatQuery(query, 'sql')}</code>
       </pre>
+      <code>
+        <pre>{formatQuery(query, 'json')}</pre>
+      </code>
+      <button onClick={loadQuery}>loadQuery</button>
     </div>
   );
 };
